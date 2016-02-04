@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html data-ng-app=''>
+<html data-ng-app='hangmanApp'>
 
 <head>
 	<title>Hangman Game</title>
 	<meta charset="utf8" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://bootswatch.com/cyborg/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/custom.css" />
   <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
   <script src="js/app.js"></script>
 </head>
 
 <body class="full-background">
-Page loaded
-<div class='container-fluid' id="container"></div>
+<div class='container' id="container" data-ng-controller="hangmanController as hangman">
 
-
+  <div id='poor-soul' class='row'>
+  <div class='col-sm-12 col-md-6 col-md-offset-3 text-center'>{{ hangman.triesRemaining }} tries remaining</div>
+  </div>
+  <div class='row'>
+    <div class='col-sm-12 text-center'>
+      <span class='wide' data-ng-repeat="letter in hangman.completedWord track by $index">{{letter}}</span>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-sm-12 text-center' id='guesses'>{{ hangman.guesses }}</div>
+    <div class='col-sm-12 text-center'><span class='wide' data-ng-repeat="letter in hangman.guesses track by $index">{{letter}}</span></div>
+  </div>
+  <div class='row'>
+    <div class="col-sm-12 text-center">
+      <input type='text' size='1' id='guess' data-ng-model='hangman.guess' data-ng-change='hangman.checkGuess();'>
+    </div>
+  </div>
+  <div class='row' id='statuses'>
+    <div class='col-sm-1 table small-font'>Controller: <span class='glyphicon glyphicon-{{ hangman.controllerWorks }}'></span>
+</div>
+  </div>
+</div>
 </body>
-
 </html>

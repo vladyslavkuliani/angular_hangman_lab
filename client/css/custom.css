@@ -1,0 +1,7 @@
+body { font-size: 32px; }
+.small-font { font-size: 12px; }
+
+.wide {
+  letter-spacing: 110%;
+  font-stretch: ultra-expanded;
+}
