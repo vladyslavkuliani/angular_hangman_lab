@@ -16,21 +16,44 @@
 
 <body class="full-background">
 <div class='container' id="container" data-ng-controller="hangmanController as hangman">
-
   <div id='poor-soul' class='row'>
+    <pre class='col-md-4 col-md-offset-4'>
+_________
+|/      |
+|      (_)
+|      \|/
+|       |
+|      / \
+|
+|___
+hang man
+</pre>
   <div class='col-sm-12 col-md-6 col-md-offset-3 text-center'>{{ hangman.triesRemaining }} tries remaining</div>
   </div>
   <div class='row'>
+		<div class='col-sm-12 text-center'>
+			<span class="label label-default">SOLVING:</span>
+		</div>
     <div class='col-sm-12 text-center'>
-      <span class='wide' data-ng-repeat="letter in hangman.completedWord track by $index">{{letter}}</span>
+			<span class='wide' data-ng-repeat="letter in hangman.completedWord track by $index">{{letter}}</span>
     </div>
   </div>
+
   <div class='row'>
-    <div class='col-sm-12 text-center' id='guesses'>{{ hangman.guesses }}</div>
+		<div class='col-sm-12 text-center'>
+			<span class="label label-default">GUESSES:</span>
+		</div>
+
+	  <div class='col-sm-12 text-center' id='guesses'>{{ hangman.guesses }}</div>
     <div class='col-sm-12 text-center'><span class='wide' data-ng-repeat="letter in hangman.guesses track by $index">{{letter}}</span></div>
   </div>
+
+
   <div class='row'>
-    <div class="col-sm-12 text-center">
+		<div class='col-sm-12 text-center'>
+			<span class="label label-default">INPUT:</span>
+		</div>
+	  <div class="col-sm-12 text-center">
       <input type='text' size='1' id='guess' data-ng-model='hangman.guess' data-ng-change='hangman.checkGuess();'>
     </div>
   </div>
