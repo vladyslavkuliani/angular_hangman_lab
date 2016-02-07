@@ -14,13 +14,16 @@ var HangmanGame = function(secretWord, tries) {
 
 // call hg.guess('f') to guess a letter and update the game status
 HangmanGame.prototype.guess = function(newLetter) {
-  console.log('you guessed', newLetter);
+  console.log('received guess:', newLetter);
   if (this.isLetterInWord(newLetter, this.secretWord)) {
     console.log('found ' + newLetter + ' in the word: ', this.secretWord);
   } else {
     this.triesRemaining--;
   }
-  this.guesses.push(newLetter);
+  // only add unique letters 
+  if (this.guesses.indexOf(newLetter) === -1) {
+    this.guesses.push(newLetter);
+  }
   this.completedWord = this.wordSoFar();
   return this.checkGameWinStatus();
 };
