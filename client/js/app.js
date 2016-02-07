@@ -4,28 +4,28 @@ var app = angular.module("hangmanApp", [])
   .controller('hangmanController', hangmanController);
 
 
-  function hangmanController() {
-    var vm = this;
-    console.log('hangmanController online');
-    this.controllerWorks = 'ok';
-    this.game = new HangmanGame('elephant');
-    this.guess = '';
-    this.checkGuess = checkGuess;
+function hangmanController() {
+  var vm = this;
+  console.log('hangmanController online');
+  this.controllerWorks = 'ok';
+  this.game = new HangmanGame('elephant');
+  this.guess = '';
+  this.checkGuess = checkGuess;
 
-    // define functions separately to keep code easy to read
-    // this function sends the new guess to the hangmanGame which updates accordingly
-    // it then clears the input field
-    function checkGuess() {
-      var guess = this.guess;
-      var result = this.game.guess(guess);
-      if (result === 'WIN') {
-        alert('you win!');
-      } else if(result === 'LOSE') {
-        alert("oh no! you lost (◕︵◕)");
-      } // else we continue playing
-      this.guess = '';
-    }
+  // define functions separately to keep code easy to read
+  // this function sends the new guess to the hangmanGame which updates accordingly
+  // it then clears the input field
+  function checkGuess() {
+    var guess = this.guess;
+    var result = this.game.guess(guess);
+    if (result === 'WIN') {
+      alert('you win!');
+    } else if(result === 'LOSE') {
+      alert("oh no! you lost (◕︵◕)");
+    } // else we continue playing
+    this.guess = '';
   }
+}
 
 
 // Alternate solution using multiple primitives/scalars for the view.  Note how in this case,
