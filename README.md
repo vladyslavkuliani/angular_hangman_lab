@@ -106,3 +106,8 @@ That array on the page is kinda ugly.  Let's fix it.
 * should it be case insensitive?
 * keep score.
 * listing "X tries remaining" is boring: develop a way to visualize the drawing of the hangman as the game progresses
+
+
+# Sample
+
+![screenshot]('assets/screenshot.png')
