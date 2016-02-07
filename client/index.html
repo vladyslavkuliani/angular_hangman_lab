@@ -28,8 +28,10 @@ _________
 |                           |___/
 |___                                        hang-man
 
-</pre>
-  <div class='col-sm-12 col-md-6 col-md-offset-3 text-center'>{{ hangman.game.triesRemaining }} tries remaining</div>
+    </pre>
+    <div class='col-sm-12 col-md-6 col-md-offset-3 text-center'>
+      {{ hangman.game.triesRemaining }} tries remaining
+    </div>
   </div>
   <div class='row'>
     <div class='col-sm-12 text-center'>
@@ -44,9 +46,8 @@ _________
     <div class='col-sm-12 text-center'>
       <span class="label label-default">GUESSES:</span>
     </div>
-
-    <div class='col-sm-12 text-center' id='guesses'>{{ hangman.game.guesses }}</div>
-    <div class='col-sm-12 text-center'><span class='wide' data-ng-repeat="letter in hangman.guesses">{{letter}}</span></div>
+    <!-- <div class='col-sm-12 text-center' id='guesses'>{{ hangman.game.guesses }}</div> -->
+    <div class='col-sm-12 text-center'><span class='wide' data-ng-repeat="letter in hangman.game.guesses">{{letter}}</span></div>
   </div>
 
 
