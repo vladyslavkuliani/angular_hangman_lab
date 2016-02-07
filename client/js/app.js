@@ -1,4 +1,4 @@
-console.log('cookies');
+console.log('app.js loaded!');
 
 var app = angular.module("hangmanApp", [])
   .controller('hangmanController', hangmanController);
