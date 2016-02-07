@@ -36,7 +36,7 @@ hang man
       <span class="label label-default">SOLVING:</span>
     </div>
     <div class='col-sm-12 text-center'>
-      <span class='wide' data-ng-repeat="letter in hangman.game.completedWord track by $index">{{letter}}</span>
+      <span class='wide'>{{ hangman.game.completedWord }}</span>
     </div>
   </div>
 
@@ -46,7 +46,7 @@ hang man
     </div>
 
     <div class='col-sm-12 text-center' id='guesses'>{{ hangman.game.guesses }}</div>
-    <div class='col-sm-12 text-center'><span class='wide' data-ng-repeat="letter in hangman.guesses track by $index">{{letter}}</span></div>
+    <div class='col-sm-12 text-center'><span class='wide' data-ng-repeat="letter in hangman.guesses">{{letter}}</span></div>
   </div>
 
 
