@@ -1,10 +1,14 @@
 console.log('hangmanGame loaded');
+
+// HangmanGame
+// to use:
+// 1. var hg = new HangmanGame('supersecretword');
+// 2. hg.guess('t');
 var HangmanGame = function(secretWord, tries) {
   this.secretWord = secretWord;
   this.guesses = [];
   this.triesRemaining = tries || 7;
   this.completedWord = this.wordSoFar();
-  //this.wordSoFar();
 };
 
 
@@ -39,13 +43,10 @@ HangmanGame.prototype.wordSoFar = function() {
 // determines win/lose/continue
 HangmanGame.prototype.checkGameWinStatus = function() {
   if(this.triesRemaining === 0) {
-    alert('YOU LOSE!!!!!!!!!!!!!!!!!!!!');
     return 'LOSE';
   } else if( !this.isLetterInWord('_', this.completedWord) ) {
-    alert('YOU WIN!!!!!!!!!!!!!!!!!!!!!!!!');
     return 'WIN';
   } else {
-    console.log(this.triesRemaining, ' tries remain');
     return 'CONTINUE';
   }
 };

@@ -17,7 +17,12 @@ var app = angular.module("hangmanApp", [])
     // it then clears the input field
     function checkGuess() {
       var guess = this.guess;
-      this.game.guess(guess);
+      var result = this.game.guess(guess);
+      if (result === 'WIN') {
+        alert('you win!');
+      } else if(result === 'LOSE') {
+        alert("oh no! you lost (◕︵◕)");
+      } // else we continue playing
       this.guess = '';
     }
   }
