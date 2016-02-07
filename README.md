@@ -110,4 +110,4 @@ That array on the page is kinda ugly.  Let's fix it.
 
 # Sample
 
-![screenshot]('assets/screenshot.png')
+![screenshot](assets/screenshot.png)
