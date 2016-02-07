@@ -4,6 +4,7 @@ var HangmanGame = function(secretWord, tries) {
   this.guesses = [];
   this.triesRemaining = tries || 7;
   this.completedWord = this.wordSoFar();
+  //this.wordSoFar();
 };
 
 
