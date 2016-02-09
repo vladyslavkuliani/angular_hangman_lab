@@ -55,13 +55,24 @@ Note what is returned, and what changes on `hangman`.  You'll use this inside yo
 Let's get angular setup in our app.  
 
 * add `data-ng-app` in the appropriate location
-* add your controller using `data-ng-controller`
-* in `app.js` add your controller to the angular module
-  * note that an initial function is provided for you
+* add your controller using `data-ng-controller=hangmanController as hangman`
+* in `app.js` add your controller to the angular module at the top
+  * note that an initial function for the controller is provided for you
 
 If this went OK, then when you refresh you should see the `console.log`
 statement from the controller and the `Controller:` status in the lower left should
-be a check-mark.  If it's an X things are partially working.  If empty, angular is not setup.
+be a check-mark.  If it's an `X`, things are partially working.  If empty, angular is not setup.
+
+<details><summary>Hint:
+```html
+<html data-ng-app='hangmanApp'>
+....
+<div class='container' id="container" data-ng-controller='hangmanController as hangman'>
+```
+```js
+angular.module("hangmanApp", [])
+  .controller('hangmanController', hangmanController);
+```
 
 ### Step 2: display game properties
 
