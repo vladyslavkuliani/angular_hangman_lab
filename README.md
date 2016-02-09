@@ -63,7 +63,7 @@ If this went OK, then when you refresh you should see the `console.log`
 statement from the controller and the `Controller:` status in the lower left should
 be a check-mark.  If it's an `X`, things are partially working.  If empty, angular is not setup.
 
-<details><summary>Hint:
+<details><summary>Hint:</summary>
 ```html
 <html data-ng-app='hangmanApp'>
 ....
