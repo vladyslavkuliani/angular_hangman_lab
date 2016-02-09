@@ -59,7 +59,7 @@ _________
   </div>
   <div class='row' id='statuses'>
     <div class='col-sm-1 table small-font'>Controller:
-      <span class='glyphicon glyphicon-{{ hangman.controllerWorks || "remove" }}'></span>
+      <span class='glyphicon' data-ng-class="hangman.controllerWorks == true ? 'glyphicon-ok' : 'glyphicon-remove'"></span>
     </div>
   </div>
 </div>
