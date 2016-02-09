@@ -73,6 +73,7 @@ be a check-mark.  If it's an `X`, things are partially working.  If empty, angul
 angular.module("hangmanApp", [])
   .controller('hangmanController', hangmanController);
 ```
+</details>
 
 ### Step 2: display game properties
 
