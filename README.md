@@ -95,8 +95,9 @@ It should look like something like this once you've got it.
  * you can display it on the page somewhere if you want to verify
 * use `ng-change` to call a function when the input changes
   * write a function in your controller for this
-  * make sure to make the function publicly available on a controller instance
-    * e.g. `this.checkGuess = yourFunctionName`
+  * for now you can just console.log the value of the input
+    * make sure to make the function publicly available on a controller instance
+      * e.g. `this.checkGuess = yourFunctionName`
   * the input should be cleared after each character is typed
 
 ### Step 4: winning
@@ -118,7 +119,7 @@ That array on the page is kinda ugly.  Let's fix it.
 * when starting the game use a random word from a list of words
 * should it be case insensitive?
 * keep score.
-* listing "X tries remaining" is boring: develop a way to visualize the drawing of the hangman as the game progresses
+* TOUGH: listing "X tries remaining" is boring: develop a way to visualize the drawing of the hangman as the game progresses
 
 
 # Sample
