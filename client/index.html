@@ -38,7 +38,9 @@ _________
       <span class="label label-default">SOLVING:</span>
     </div>
     <div class='col-sm-12 text-center'>
-      <span class='wide'>{{ hangman.game.completedWord }}</span>
+      <span class='wide'>
+        {{ hangman.game.completedWord }}
+      </span>
     </div>
   </div>
 
@@ -47,7 +49,11 @@ _________
       <span class="label label-default">GUESSES:</span>
     </div>
     <!-- <div class='col-sm-12 text-center' id='guesses'>{{ hangman.game.guesses }}</div> -->
-    <div class='col-sm-12 text-center'><span class='wide' data-ng-repeat="letter in hangman.game.guesses">{{letter}}</span></div>
+    <div class='col-sm-12 text-center'>
+      <span class='wide' data-ng-repeat="letter in hangman.game.guesses">
+        {{letter}}
+      </span>
+    </div>
   </div>
 
 
@@ -61,7 +67,7 @@ _________
   </div>
   <div class='row' id='statuses'>
     <div class='col-sm-1 table small-font'>Controller:
-      <span class='glyphicon glyphicon-{{ hangman.controllerWorks || "remove" }}'></span>
+      <span class='glyphicon' data-ng-class="hangman.controllerWorks == true ? 'glyphicon-ok' : 'glyphicon-remove'"></span>
     </div>
   </div>
 </div>

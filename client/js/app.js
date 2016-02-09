@@ -7,7 +7,7 @@ var app = angular.module("hangmanApp", [])
 function hangmanController() {
   var vm = this;
   console.log('hangmanController online');
-  this.controllerWorks = 'ok';
+  this.controllerWorks = true;
   this.game = new HangmanGame('elephant');
   this.guess = '';
   this.checkGuess = checkGuess;
