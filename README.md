@@ -86,7 +86,7 @@ Add these in the appropriate parts of the html using `{{ }}` syntax.
     correct positions.  E.g. if you guessed 'b' and 'r' for 'rabbit', it shows: 'r_bb__'
 
 
-It should look like something like this once you've got it.
+It should look something like this once you've got it:
 ![after step 2](assets/after_step2.png)
 
 ### Step 3: user input
