@@ -4,5 +4,5 @@ var app = angular.module("hangmanApp", []);
 
 function hangmanController() {
   console.log('hangmanController online');
-  this.controllerWorks = 'ok';
+  this.controllerWorks = true;
 }
