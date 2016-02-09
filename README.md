@@ -79,7 +79,7 @@ angular.module("hangmanApp", [])
 
 * in the controller instantiate a new game instance and store it: `new HangmanGame('elephant')`
 * `HangmanGame` provides `guesses`, `completedWord` and `triesRemaining` properties.
-Add these in the appropriate parts of the html using `{{ }}` syntax.
+Add these in the appropriate parts of the html using `{{ }}` syntax.  Get the values from the hangmanGame to display on the page.
   * You might not be able to see the guesses until you make some.  We don't have
   an interface for that yet, but we can add a couple of guesses right in the controller
   Try calling `SOMETHING.guess('f')` inside the controller.  `console.log as needed`
@@ -89,6 +89,7 @@ Add these in the appropriate parts of the html using `{{ }}` syntax.
 
 It should look something like this once you've got it:
 ![after step 2](assets/after_step2.png)
+
 
 ### Step 3: user input
 
