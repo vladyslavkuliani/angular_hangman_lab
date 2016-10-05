@@ -1,8 +1,9 @@
 {
   "name": "client",
-  "homepage": "https://github.com/sf-wdi-25/angular_hangman_lab",
+  "homepage": "https://github.com/sf-wdi-labs/angular_hangman_lab",
   "authors": [
-    "Ilias Tsangaris <iliastsangaris@gmail.com>"
+    "GA SF WDI",
+    "tgaff <tgaff@alumni.nd.edu>"
   ],
   "description": "",
   "main": "",
