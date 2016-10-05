@@ -1,3 +1,12 @@
+<!---
+  market: SF,
+  credit: https://github.com/SF-WDI-LABS/angular_hangman_lab
+-->
+
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60"> 
+
+#ngHangman
+
 <pre>
 _________
 |/      |                               _
@@ -9,30 +18,36 @@ _________
 |___                                        hang-man
 </pre>
 
-# Purpose
+### Why is this important?
+<!-- framing the "why" in big-picture/real world examples -->
+*This workshop is important because:*
 
-This lab is a chance to use the skills you've developed so far and play with angular.
-You'll be making an in-browser [hang-man game](https://en.wikipedia.org/wiki/Hangman_(game)).
+This workshop is a chance to use the skills you've developed so far and play with angular. We'll be making an in-browser [hang-man game](https://en.wikipedia.org/wiki/Hangman_(game)).
 
-Much of the game code is provided for you.  We won't concern ourselves with drawing the
-hang-man itself.
+### What are the objectives?
+<!-- specific/measurable goal for students to achieve -->
+*After this workshop, developers will be able to:*
 
-## Concepts
+ * Get user input with `ng-model`
+ * Organize code with `ng-controller`
+ * Visualize a collection with `ng-repeat`
+ * Fire an event with `ng-change`
 
-* ng-model
-* angular controllers
-* ng-repeat
-* ng-change
-* object oriented javascript
+### Where should we be now?
+<!-- call out the skills that are prerequisites -->
+*Before this workshop, developers should already be able to:*
 
-# Getting started
+* Use Angular at a basic level
+
+## Mockup of End Result
+
+![screenshot](./imgs/sample-solution.png)
+
+## Setup
 
 1. clone this repo (or fork & clone)
 1. open index.html and app.js
 1. open hangman.js and read it's contents
-
-
-### hangman.js
 
 Most of the game code itself has been given to you.  Let's check it out using dev tools.
 Open index.html and in the browser console try the following:
@@ -45,85 +60,57 @@ You should have a new instance of a game. Now try running:
 ```js
 hangman.guess('x');
 hangman.guess('t');
-hangman.checkGameWinStatus();
+hangman.isWinner();
 ```
 
 Note what is returned, and what changes on `hangman`.  You'll use this inside your angular controller.
 
 
-### Step 1: angular
-Let's get angular setup in our app.  
+### Step 1: Initialization
+Let's get angular setup in our app.
 
-* add `data-ng-app` in the appropriate location
-* add your controller using `data-ng-controller=hangmanController as hangman`
-* in `app.js` add your controller to the angular module at the top
-  * note that an initial function for the controller is provided for you
+* `bower install` your front-end assets
+* add `ng-app` in the appropriate location and set it equal to your "hangmanApp"
+* register a new controller with your application called "hangmanCtrl" and use it in the view
 
-If this went OK, then when you refresh you should see the `console.log`
-statement from the controller and the `Controller:` status in the lower left should
-be a check-mark.  If it's an `X`, things are partially working.  If empty, angular is not setup.
+### Step 2: Game Properties
 
-<details><summary>Hint:</summary>
-```html
-<html data-ng-app='hangmanApp'>
-....
-<div class='container' id="container" data-ng-controller='hangmanController as hangman'>
-```
-```js
-angular.module("hangmanApp", [])
-  .controller('hangmanController', hangmanController);
-```
-</details>
-
-### Step 2: display game properties
-
-* in the controller instantiate a new game instance and store it: `new HangmanGame('elephant')`
-* `HangmanGame` provides `guesses`, `completedWord` and `triesRemaining` properties.
-Add these in the appropriate parts of the html using `{{ }}` syntax.  Get the values from the hangmanGame to display on the page.
-  * You might not be able to see the guesses until you make some.  We don't have
-  an interface for that yet, but we can add a couple of guesses right in the controller
-  Try calling `SOMETHING.guess('f')` inside the controller.  `console.log as needed`
+* in the controller instantiate a new game instance, `new HangmanGame('elephant')`, and pass it to the view
+* a `HangmanGame` instance provides `guesses`, `completedWord` and `triesRemaining` properties.
+Add these in the appropriate parts of the html using expressions to get the values from the hangmanGame to display on the page.
+  * Hint: You might not be able to see the guesses until you make some.  We don't have
+  an interface for that yet, but we can add a couple of guesses right in the controller. You can try calling `.guess('f')` on your game instance inside the controller.  `console.log as needed`.
   * Note: `completedWord` is a string containing guessed characters that match, in their
     correct positions.  E.g. if you guessed 'b' and 'r' for 'rabbit', it shows: 'r_bb__'
 
 
-It should look something like this once you've got it:
-![after step 2](assets/after_step2.png)
+### Step 3: User Input
 
-
-### Step 3: user input
-
+* autofocus to the input field
 * use `ng-model` to track the input field's value
- * you can display it on the page somewhere if you want to verify
-* use `ng-change` to call a function when the input changes
-  * write a function in your controller for this
-  * for now you can just console.log the value of the input
-    * make sure to make the function publicly available on a controller instance
-      * e.g. `this.checkGuess = yourFunctionName`
+* use `ng-change` to call a function when the input changes and pass in the input's value
+  * write a helper function in your controller that is passed into the view, i.e. `guessLetter`.
   * the input should be cleared after each character is typed
 
-### Step 4: winning
+### Step 4: Win State
 
-* check guesses using `HangmanGame#guess`
-* add some logic in your controller to check if the player has won or lost
-* alert them or find another way to let them know
+* add the class "glyphicon-ok" to the span with class "glyphicon" if the game is won
+* add the class "glyphicon-remove" to the span with class "glyphicon" if the game is lost
 
-### Step 5: looking better
+### Step 5: Looking Good
 
-That array on the page is kinda ugly.  Let's fix it.
+The guesses on the page is kinda ugly. Let's fix it.
 
-* change the array to display using `ng-repeat`
+* change the list of guesses to display using `ng-repeat`
 * improve the looks of anything else as desired
 
-### Challenges
+### Step 6: More User Stories (Bonus)
 
-* find a way to restart the game after win/lose
-* when starting the game use a random word from a list of words
-* should it be case insensitive?
-* keep score.
-* TOUGH: listing "X tries remaining" is boring: develop a way to visualize the drawing of the hangman as the game progresses
+Accomplish the following features on your own or in a pair. User can...
 
+* enter an uppercase word that's treated as a lower case word
+* be challenged with a random word from a list of words
+* restart the game after win/lose
+* keep score of games won and lost
+* see a drawing of the hangman as the game progresses (extra bonus)
 
-# Sample
-
-![screenshot](assets/screenshot.png)
