@@ -9,70 +9,72 @@ var HangmanGame = function(secretWord, tries) {
   this.input = "";
   this.guesses = [];
   this.triesRemaining = tries || 7;
-  this.completedWord = this.wordSoFar();
+  this.displayWord = this.filteredWord();
+  this.gameOver = false;
   this.gameWon = null;
 };
 
 // user can guess a letter
 HangmanGame.prototype.guess = function(guess) {
   // don't continue if the game is over
-  if (this.gameWon !== null) {
+  if (this.gameOver) {
     console.log("the game is over");
     return false;
   }
   // check if the letter has already been guessed
   var alreadyGuessed = this.guesses.indexOf(guess) !== -1;
-  // only add unique letters
-  if (!alreadyGuessed) {
-    // default to
-    this.guesses.push(guess);
-    // can't add a letter if the game has already been lost
-  } else if (this.gameWon === false) {
-    console.log("you have already lost the game");
-  } else {
-    console.log("this letter has already been guessed")
-    return this.isWinner();
+  if (alreadyGuessed) {
+    console.log("this letter has already been guessed");
+    return;
   }
-  // determine if letter is in word
+
+  // add the guess letter to the list of guesses
+  this.guesses.push(guess);
+
   if (this.isLetterInWord(guess, this.secretWord)) {
+    // good guess
     console.log('found ' + guess + ' in the word: ', this.secretWord);
+    // update display word
+    this.displayWord = this.filteredWord();
   } else {
+    // bad guess
     this.triesRemaining--;
   }
-  this.completedWord = this.wordSoFar();
-  return this.isWinner();
+
+  this.checkForWinner();
+  return;
 };
 
 //////////////////////
 // Helper functions //
 //////////////////////
 
-// wordSoFar returns the word completed up till now
-HangmanGame.prototype.wordSoFar = function() {
-  var newSecretWord = '';
+// filteredWord returns the word completed up till now
+HangmanGame.prototype.filteredWord = function() {
+  var displayWord = '';
   for (var index in this.secretWord) {
     var currentLetter = this.secretWord[index];
     if(this.guesses.indexOf(currentLetter) > -1) {
-      newSecretWord += currentLetter;
+      displayWord += currentLetter;
     } else {
-      newSecretWord += '_';
+      displayWord += '_';
     }
   }
-  this.completedWord = newSecretWord;
-  return newSecretWord;
+
+  return displayWord;
 };
 
 // determines win/lose status
-HangmanGame.prototype.isWinner = function() {
+HangmanGame.prototype.checkForWinner = function() {
   if(this.triesRemaining === 0) {
-    console.log("Sorry, you lose.")
+    console.log("Sorry, you loose.")
+    this.gameOver = true;
     this.gameWon = false;
   // user wins if there are no more underscores in word
-} else if( !this.isLetterInWord("_", this.completedWord) ) {
+  } else if( !this.isLetterInWord("_", this.displayWord) ) {
     console.log("Yay, you win!")
+    this.gameOver = true;
     this.gameWon = true;
-  } else {
-    this.gameWon = null;
   }
 };
 
