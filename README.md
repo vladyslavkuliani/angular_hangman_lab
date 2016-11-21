@@ -69,7 +69,6 @@ Note what is returned, and what changes on `hangman`.  You'll use this inside yo
 ### Step 1: Initialization
 Let's get angular setup in our app.
 
-* `bower install` your front-end assets
 * add `ng-app` in the appropriate location and set it equal to your "hangmanApp"
 * register a new controller with your application called "hangmanCtrl" and use it in the view
 
