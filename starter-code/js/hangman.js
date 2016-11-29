@@ -66,12 +66,15 @@ HangmanGame.prototype.filteredWord = function() {
 
 // determines win/lose status
 HangmanGame.prototype.checkForWinner = function() {
+  var span = document.getElementsByClassName('glyphicon')[0];
   if(this.triesRemaining === 0) {
+    span.className += " glyphicon-remove";
     console.log("Sorry, you loose.")
     this.gameOver = true;
     this.gameWon = false;
   // user wins if there are no more underscores in word
   } else if( !this.isLetterInWord("_", this.displayWord) ) {
+    span.className += " glyphicon-ok";
     console.log("Yay, you win!")
     this.gameOver = true;
     this.gameWon = true;
